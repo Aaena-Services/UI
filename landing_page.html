@@ -1,182 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>PhotoAina - Your Lifelong Digital Memory Vault</title>
+<title>Photoaina - Your Complete Event Service Platform</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <style type="text/tailwindcss">
         :root {
-          --primary-color: #f2600c;
-          --background-color: #ffffff;
-          --text-primary: #333333;
-          --text-secondary: #666666;
-          --accent-color: #f9f9f9;
-          --button-hover: #d9540a;
+            --primary-color: #f2600c;
+            --primary-dark: #d9540a;
+            --secondary-color: #6366f1;
+            --background-color: #f8f9fa;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --accent-color: #ffffff;
+            --gradient-start: #ffedd5;
+            --gradient-end: #fef3c7;
         }
         body {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          background-color: var(--background-color);
-          color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
         }
         .button_primary {
-          @apply bg-[var(--primary-color)] text-white rounded-full px-6 py-3 text-base font-bold hover:bg-[var(--button-hover)] transition duration-300;
+            @apply bg-[var(--primary-color)] text-white rounded-full px-6 py-3 text-base font-bold hover:bg-[var(--primary-dark)] transition-all duration-300 ease-in-out transform hover:scale-105;
         }
         .button_secondary {
-          @apply text-[var(--text-primary)] font-semibold hover:text-[var(--primary-color)] transition duration-300;
+            @apply text-[var(--text-primary)] font-semibold hover:text-[var(--primary-color)] transition duration-300;
+        }
+        .gradient-bg {
+            background-image: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+        }
+        .card-hover {
+            @apply transform hover:-translate-y-2 transition-transform duration-300 ease-in-out;
         }
     </style>
 </head>
 <body class="bg-[var(--background-color)] text-[var(--text-primary)]">
 <div class="min-h-screen flex flex-col">
-<header class="bg-white py-4 shadow-md sticky top-0 z-50">
+<header class="bg-white py-4 shadow-sm sticky top-0 z-50">
 <div class="container mx-auto px-6 flex items-center justify-between">
 <a class="flex items-center gap-3" href="#">
-<svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_6_319)">
-<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
-</g>
-<defs><clipPath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clipPath></defs>
+<svg class="h-10 w-10 text-[var(--primary-color)]" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4Zm10.5 29.25c-1.2-1.2-2.85-1.88-4.5-1.88s-3.3.68-4.5 1.88c-1.2 1.2-1.88 2.85-1.88 4.5 0 .55.45 1 1 1h18c.55 0 1-.45 1-1 0-1.65-.68-3.3-1.88-4.5ZM13.25 31.75c1.2-1.2 2.85-1.88 4.5-1.88s3.3.68 4.5 1.88c1.2 1.2 1.88 2.85 1.88 4.5 0 .55-.45 1-1 1H4.25c-.55 0-1-.45-1-1 0-1.65.68-3.3 1.88-4.5ZM24 28c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6Zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4Z"></path>
 </svg>
-<h2 class="text-2xl font-bold text-[var(--primary-color)]">PhotoAina</h2>
+<h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-color)] to-[var(--primary-dark)]">Photoaina</h2>
 </a>
 <nav class="hidden md:flex items-center space-x-8">
-<a class="button_secondary" href="#">Partner with Us</a>
+<a class="button_secondary" href="#services">Services</a>
+<a class="button_secondary" href="#storage">Storage</a>
+<a class="button_secondary" href="#features">Features</a>
 <a class="button_primary" href="#">Sign In</a>
 </nav>
 <button class="md:hidden block text-3xl">
-<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="3" x2="21" y1="12" y2="12"></line><line x1="3" x2="21" y1="6" y2="6"></line><line x1="3" x2="21" y1="18" y2="18"></line></svg>
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
 </button>
 </div>
 </header>
 <main class="flex-grow">
-<section class="bg-[var(--accent-color)] py-20">
+<section class="gradient-bg py-24 sm:py-32">
 <div class="container mx-auto px-6 text-center">
-<h1 class="text-4xl md:text-5xl font-extrabold text-[var(--text-primary)] mb-4">Your Vision, Our Professionals, Your Memories Forever.</h1>
-<p class="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">PhotoAina connects you with professional event service providers and preserves your most treasured moments as a lifelong digital memory vault.</p>
-<div class="max-w-2xl mx-auto">
+<h1 class="text-4xl md:text-6xl font-extrabold text-[var(--text-primary)] mb-6 animate-fade-in-down">Your Complete Event Service Platform</h1>
+<p class="text-lg md:text-xl text-[var(--text-secondary)] mb-10 max-w-3xl mx-auto animate-fade-in-up">From breathtaking photography and videography to immersive live streaming and aerial drone shots, Photoaina is your all-in-one solution for capturing and preserving life's most precious moments. We connect you with top-tier professionals and provide lifetime storage, so your memories are safe, forever.</p>
+<div class="max-w-xl mx-auto animate-fade-in-up">
 <div class="relative">
-<input class="w-full py-4 pl-5 pr-32 rounded-full border-2 border-gray-200 focus:outline-none focus:border-[var(--primary-color)] transition duration-300" placeholder="Search for event services (e.g., wedding photographer, drone operator)" type="text"/>
-<button class="absolute right-2 top-1/2 -translate-y-1/2 button_primary">Search</button>
+<input class="w-full py-4 pl-6 pr-36 rounded-full border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] transition duration-300 shadow-md" placeholder="e.g., wedding photographer, event videographer" type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 button_primary">Find Pro</button>
 </div>
 </div>
 </div>
 </section>
-
-<section class="py-20">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center text-[var(--text-primary)] mb-12">For Service Providers</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Professional Profile -->
-            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Showcase Your Talent</h3>
-                <p class="text-[var(--text-secondary)]">Create a professional profile to highlight your services, showcase your best work, display customer reviews, list your equipment, and define your service packages. Attract clients with a compelling online presence.</p>
-            </div>
-            <!-- Promotion Plans -->
-            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Boost Your Visibility</h3>
-                <p class="text-[var(--text-secondary)]">Choose from free or paid promotion plans to gain better visibility in our curated marketplace. Reach a wider audience and get discovered by more potential clients actively seeking your services.</p>
-            </div>
-            <!-- Verified Booking System -->
-            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Streamlined Bookings & Payments</h3>
-                <p class="text-[var(--text-secondary)]">Utilize our verified booking system with built-in appointment scheduling, pre-event planning tools, and robust payment assurance. Focus on your craft while we handle the logistics.</p>
-            </div>
-        </div>
-    </div>
+<section class="py-20" id="services">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl md:text-4xl font-bold text-center text-[var(--text-primary)] mb-12">Our Services</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white rounded-xl shadow-lg p-8 text-center card-hover">
+<span class="material-icons text-5xl text-[var(--primary-color)] mb-4">photo_camera</span>
+<h3 class="text-xl font-bold text-[var(--text-primary)] mb-2">Photography</h3>
+<p class="text-[var(--text-secondary)]">Capture stunning, high-resolution photos with our vetted professional photographers for any event.</p>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-8 text-center card-hover">
+<span class="material-icons text-5xl text-[var(--primary-color)] mb-4">videocam</span>
+<h3 class="text-xl font-bold text-[var(--text-primary)] mb-2">Videography</h3>
+<p class="text-[var(--text-secondary)]">Tell your story with cinematic 4K videography, creating timeless films of your special occasions.</p>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-8 text-center card-hover">
+<span class="material-icons text-5xl text-[var(--primary-color)] mb-4">flight</span>
+<h3 class="text-xl font-bold text-[var(--text-primary)] mb-2">Drone Operations</h3>
+<p class="text-[var(--text-secondary)]">Get breathtaking aerial views and dynamic shots with our certified and experienced drone pilots.</p>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-8 text-center card-hover">
+<span class="material-icons text-5xl text-[var(--primary-color)] mb-4">settings_input_antenna</span>
+<h3 class="text-xl font-bold text-[var(--text-primary)] mb-2">Live Streaming</h3>
+<p class="text-[var(--text-secondary)]">Share your event with anyone, anywhere in the world with our reliable multi-camera live streaming services.</p>
+</div>
+</div>
+</div>
 </section>
-
-<section class="py-20 bg-[var(--accent-color)]">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center text-[var(--text-primary)] mb-12">For Customers</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Curated Marketplace -->
-            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Discover & Compare Professionals</h3>
-                <p class="text-[var(--text-secondary)]">Explore our curated marketplace to easily discover and compare verified professionals for any event type – from weddings and baby showers to corporate functions and private parties.</p>
-            </div>
-            <!-- Communication & Booking -->
-            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Seamless Communication & Booking</h3>
-                <p class="text-[var(--text-secondary)]">Communicate directly with service providers, book appointments, and securely pay token advances all through the platform. Our intuitive interface makes planning effortless.</p>
-            </div>
-            <!-- Escrow-based Payment -->
-            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Secure Escrow Payments</h3>
-                <p class="text-[var(--text-secondary)]">Benefit from our escrow-based payment system, ensuring that service providers only receive funds after you've confirmed satisfactory delivery of services. Your peace of mind is our priority.</p>
-            </div>
-            <!-- Live Streaming & Event Websites -->
-            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Live Streaming & Private Event Sites</h3>
-                <p class="text-[var(--text-secondary)]">Enjoy live streaming capabilities for your events and personalized event websites hosted privately with controlled access. Share your special moments securely with loved ones, wherever they are.</p>
-            </div>
-            <!-- Content Approval & Deliverables -->
-            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Content Approval & Physical Deliverables</h3>
-                <p class="text-[var(--text-secondary)]">Approve your content before digital handover. Plus, you have the option to order physical deliverables like custom albums and prints directly through the platform.</p>
-            </div>
-        </div>
-    </div>
+<section class="py-20 bg-gray-50" id="storage">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl md:text-4xl font-bold text-center text-[var(--text-primary)] mb-4">Lifetime Storage for Your Memories</h2>
+<p class="text-lg text-center text-[var(--text-secondary)] mb-12 max-w-2xl mx-auto">Choose the perfect plan to securely store and access your digital legacy forever.</p>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-end">
+<div class="bg-white rounded-xl shadow-lg p-6 card-hover border-t-4 border-gray-300 flex flex-col h-full">
+<h3 class="text-2xl font-bold text-[var(--text-primary)] mb-2">Essential</h3>
+<p class="text-4xl font-extrabold mb-4">25<span class="text-lg font-semibold text-[var(--text-secondary)]">GB</span></p>
+<ul class="text-[var(--text-secondary)] space-y-3 mb-6 flex-grow">
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>HD Support</li>
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>Standard Sharing</li>
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>Basic Support</li>
+</ul>
+<button class="mt-auto w-full text-[var(--primary-color)] border-2 border-[var(--primary-color)] rounded-full px-6 py-2 font-bold hover:bg-[var(--primary-color)] hover:text-white transition duration-300">Choose Plan</button>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-6 card-hover border-t-4 border-blue-400 flex flex-col h-full">
+<h3 class="text-2xl font-bold text-[var(--text-primary)] mb-2">Premium</h3>
+<p class="text-4xl font-extrabold mb-4">40<span class="text-lg font-semibold text-[var(--text-secondary)]">GB</span></p>
+<ul class="text-[var(--text-secondary)] space-y-3 mb-6 flex-grow">
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>HD &amp; 4K Support</li>
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>Advanced Sharing</li>
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>Private Websites</li>
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>Priority Support</li>
+</ul>
+<button class="mt-auto w-full text-[var(--primary-color)] border-2 border-[var(--primary-color)] rounded-full px-6 py-2 font-bold hover:bg-[var(--primary-color)] hover:text-white transition duration-300">Choose Plan</button>
+</div>
+<div class="bg-[var(--secondary-color)] text-white rounded-xl shadow-2xl p-6 card-hover border-t-4 border-yellow-300 relative transform scale-105 flex flex-col h-full">
+<div class="absolute top-0 right-4 -mt-4 bg-yellow-300 text-[var(--text-primary)] px-3 py-1 rounded-full text-sm font-bold">POPULAR</div>
+<h3 class="text-2xl font-bold mb-2">Professional</h3>
+<p class="text-4xl font-extrabold mb-4">80<span class="text-lg font-semibold opacity-80">GB</span></p>
+<ul class="space-y-3 mb-6 flex-grow">
+<li class="flex items-center"><span class="material-icons text-yellow-300 mr-2">check_circle</span>HD &amp; 4K Support</li>
+<li class="flex items-center"><span class="material-icons text-yellow-300 mr-2">check_circle</span>Private Websites</li>
+<li class="flex items-center"><span class="material-icons text-yellow-300 mr-2">check_circle</span>Physical Deliverables</li>
+<li class="flex items-center"><span class="material-icons text-yellow-300 mr-2">check_circle</span>24/7 VIP Support</li>
+</ul>
+<button class="mt-auto w-full bg-white text-[var(--secondary-color)] rounded-full px-6 py-2 font-bold hover:bg-gray-200 transition duration-300">Choose Plan</button>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-6 card-hover border-t-4 border-gray-800 flex flex-col h-full">
+<h3 class="text-2xl font-bold text-[var(--text-primary)] mb-2">Enterprise</h3>
+<p class="text-4xl font-extrabold mb-4">100<span class="text-lg font-semibold text-[var(--text-secondary)]">GB+</span></p>
+<ul class="text-[var(--text-secondary)] space-y-3 mb-6 flex-grow">
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>Custom Storage</li>
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>All Features Included</li>
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>Dedicated Manager</li>
+<li class="flex items-center"><span class="material-icons text-green-500 mr-2">check_circle</span>API Access</li>
+</ul>
+<button class="mt-auto w-full text-[var(--primary-color)] border-2 border-[var(--primary-color)] rounded-full px-6 py-2 font-bold hover:bg-[var(--primary-color)] hover:text-white transition duration-300">Contact Us</button>
+</div>
+</div>
+</div>
 </section>
-
-<section class="py-20">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center text-[var(--text-primary)] mb-12">Lifelong Digital Memory Vault - Storage Tiers</h2>
-        <p class="text-lg text-center text-[var(--text-secondary)] mb-12 max-w-3xl mx-auto">PhotoAina evolves beyond event services, becoming your secure, private, and lifelong digital memory vault. Preserve your most cherished personal content and access it anytime, anywhere, for generations to come.</p>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Storage Tier 1 -->
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3">Basic</h3>
-                <p class="text-4xl font-extrabold text-[var(--text-primary)] mb-4">25GB</p>
-                <p class="text-[var(--text-secondary)] mb-6">Ideal for capturing essential moments and keeping a curated collection of your memories.</p>
-                <button class="button_primary w-full">Select Plan</button>
-            </div>
-            <!-- Storage Tier 2 -->
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3">Standard</h3>
-                <p class="text-4xl font-extrabold text-[var(--text-primary)] mb-4">40GB</p>
-                <p class="text-[var(--text-secondary)] mb-6">Perfect for families and individuals who want more space for photos, videos, and event data.</p>
-                <button class="button_primary w-full">Select Plan</button>
-            </div>
-            <!-- Storage Tier 3 -->
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3">Premium</h3>
-                <p class="text-4xl font-extrabold text-[var(--text-primary)] mb-4">80GB</p>
-                <p class="text-[var(--text-secondary)] mb-6">Designed for enthusiasts and professionals requiring ample storage for high-resolution content.</p>
-                <button class="button_primary w-full">Select Plan</button>
-            </div>
-            <!-- Storage Tier 4 -->
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3">Pro</h3>
-                <p class="text-4xl font-extrabold text-[var(--text-primary)] mb-4">100GB+</p>
-                <p class="text-[var(--text-secondary)] mb-6">Our most comprehensive plan for extensive archives, ensuring all your memories are safe and accessible.</p>
-                <button class="button_primary w-full">Select Plan</button>
-            </div>
-        </div>
-    </div>
+<section class="py-20" id="features">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl md:text-4xl font-bold text-center text-[var(--text-primary)] mb-12">Why Choose Photoaina?</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+<div class="flex items-start space-x-4">
+<div class="bg-orange-100 p-3 rounded-full"><span class="material-icons text-3xl text-[var(--primary-color)]">verified_user</span></div>
+<div>
+<h3 class="text-xl font-bold text-[var(--text-primary)] mb-1">Verified Professionals</h3>
+<p class="text-[var(--text-secondary)]">Every creative on our platform is hand-vetted for quality, experience, and professionalism.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="bg-orange-100 p-3 rounded-full"><span class="material-icons text-3xl text-[var(--primary-color)]">lock</span></div>
+<div>
+<h3 class="text-xl font-bold text-[var(--text-primary)] mb-1">Secure Payments</h3>
+<p class="text-[var(--text-secondary)]">Book with confidence using our encrypted and secure payment system. Funds are held until you're satisfied.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="bg-orange-100 p-3 rounded-full"><span class="material-icons text-3xl text-[var(--primary-color)]">cloud_done</span></div>
+<div>
+<h3 class="text-xl font-bold text-[var(--text-primary)] mb-1">Lifetime Storage</h3>
+<p class="text-[var(--text-secondary)]">Your memories are priceless. We offer secure, lifetime cloud storage to protect them for generations.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="bg-orange-100 p-3 rounded-full"><span class="material-icons text-3xl text-[var(--primary-color)]">event_available</span></div>
+<div>
+<h3 class="text-xl font-bold text-[var(--text-primary)] mb-1">Easy Booking</h3>
+<p class="text-[var(--text-secondary)]">Find, chat with, and book your ideal professional in just a few clicks. It's simple and transparent.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="bg-orange-100 p-3 rounded-full"><span class="material-icons text-3xl text-[var(--primary-color)]">live_tv</span></div>
+<div>
+<h3 class="text-xl font-bold text-[var(--text-primary)] mb-1">Live Streaming</h3>
+<p class="text-[var(--text-secondary)]">Broadcast your event in high-definition to a global audience, directly from our platform.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="bg-orange-100 p-3 rounded-full"><span class="material-icons text-3xl text-[var(--primary-color)]">photo_album</span></div>
+<div>
+<h3 class="text-xl font-bold text-[var(--text-primary)] mb-1">Physical Deliverables</h3>
+<p class="text-[var(--text-secondary)]">Get high-quality prints, custom albums, and beautiful keepsakes delivered to your doorstep.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 </main>
-<footer class="bg-gray-100 py-8">
-<div class="container mx-auto px-6 text-center text-[var(--text-secondary)]">
-<div class="flex justify-center space-x-6 mb-4">
-<a class="hover:text-[var(--primary-color)]" href="#">About Us</a>
-<a class="hover:text-[var(--primary-color)]" href="#">Contact</a>
-<a class="hover:text-[var(--primary-color)]" href="#">Privacy Policy</a>
-<a class="hover:text-[var(--primary-color)]" href="#">Terms of Service</a>
+<footer class="bg-slate-800 text-gray-300 pt-16 pb-8">
+<div class="container mx-auto px-6">
+<div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+<div class="lg:col-span-2">
+<a class="flex items-center gap-3 mb-4" href="#">
+<svg class="h-10 w-10 text-white" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4Zm10.5 29.25c-1.2-1.2-2.85-1.88-4.5-1.88s-3.3.68-4.5 1.88c-1.2 1.2-1.88 2.85-1.88 4.5 0 .55.45 1 1 1h18c.55 0 1-.45 1-1 0-1.65-.68-3.3-1.88-4.5ZM13.25 31.75c1.2-1.2 2.85-1.88 4.5-1.88s3.3.68 4.5 1.88c1.2 1.2 1.88 2.85 1.88 4.5 0 .55-.45 1-1 1H4.25c-.55 0-1-.45-1-1 0-1.65.68-3.3 1.88-4.5ZM24 28c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6Zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4Z"></path>
+</svg>
+<h2 class="text-3xl font-bold text-white">Photoaina</h2>
+</a>
+<p class="text-gray-400 max-w-sm">Your complete platform for event services and lifetime memory preservation.</p>
 </div>
-<div class="flex justify-center space-x-6 mb-4">
-<a class="text-gray-500 hover:text-[var(--primary-color)]" href="#"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"></path></svg></a>
-<a class="text-gray-500 hover:text-[var(--primary-color)]" href="#"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.07 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.631C8.743.532 8.368.52 7.098.582 3.782.73 1.968 2.553 1.82 5.864.757 7.154.747 7.55.747 12c0 4.45.01 4.848.074 6.136.148 3.313 1.967 5.137 5.279 5.285C8.368 23.48 8.743 23.488 12 23.488s3.63-.008 4.9-.06c3.313-.148 5.137-1.972 5.285-5.279.06-1.288.074-1.686.074-6.136s-.013-4.848-.074-6.136c-.148-3.313-1.972-5.137-5.285-5.285C15.632.52 15.257.532 12 .532zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.64a3.505 3.505 0 110-7.01 3.505 3.505 0 010 7.01zM16.892 5.922a1.21 1.21 0 100 2.419 1.21 1.21 0 000-2.419z"></path></svg></a>
-<a class="text-gray-500 hover:text-[var(--primary-color)]" href="#"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.46 6c-.77.35-1.6.58-2.46.67.88-.53 1.56-1.37 1.88-2.38-.83.49-1.74.85-2.7 1.03A4.5 4.5 0 0013.46 8c0 .34.04.67.11.98C9.53 8.78 6.1 7.05 3.79 4.45c-.32.55-.5 1.2-.5 1.9 0 1.56.8 2.94 2.02 3.75-.74-.02-1.44-.23-2.06-.57v.06c0 2.18 1.56 4 3.62 4.42-.38.1-.78.15-1.18.15-.29 0-.58-.03-.86-.08.57 1.78 2.23 3.08 4.2 3.12-1.55 1.21-3.5 1.94-5.64 1.94-.37 0-.73-.02-1.1-.06 2 1.28 4.38 2.02 6.94 2.02 8.3 0 12.84-6.88 12.84-12.84 0-.2 0-.39-.01-.58.88-.64 1.64-1.43 2.25-2.33z"></path></svg></a>
+<div>
+<h4 class="font-bold text-white mb-4 tracking-wider">Services</h4>
+<ul class="space-y-2">
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#">Photography</a></li>
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#">Videography</a></li>
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#">Drone Operations</a></li>
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#">Live Streaming</a></li>
+</ul>
 </div>
-<p>© 2024 PhotoAina. All rights reserved.</p>
+<div>
+<h4 class="font-bold text-white mb-4 tracking-wider">Storage</h4>
+<ul class="space-y-2">
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#storage">Essential</a></li>
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#storage">Premium</a></li>
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#storage">Professional</a></li>
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#storage">Enterprise</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4 tracking-wider">Company</h4>
+<ul class="space-y-2">
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#">Press</a></li>
+<li><a class="hover:text-[var(--primary-color)] transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-700 pt-6 mt-8 flex flex-col sm:flex-row items-center justify-between">
+<p class="text-sm text-gray-400 mb-4 sm:mb-0">© 2024 Photoaina. All rights reserved.</p>
+<div class="flex space-x-5">
+<a class="text-gray-400 hover:text-white transition-colors" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"></path></svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.07 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.631C8.743.532 8.368.52 7.098.582 3.782.73 1.968 2.553 1.82 5.864.757 7.154.747 7.55.747 12c0 4.45.01 4.848.074 6.136.148 3.313 1.967 5.137 5.279 5.285C8.368 23.48 8.743 23.488 12 23.488s3.63-.008 4.9-.06c3.313-.148 5.137-1.972 5.285-5.279.06-1.288.074-1.686.074-6.136s-.013-4.848-.074-6.136c-.148-3.313-1.972-5.137-5.285-5.285C15.632.52 15.257.532 12 .532zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.64a3.505 3.505 0 110-7.01 3.505 3.505 0 010 7.01zM16.892 5.922a1.21 1.21 0 100 2.419 1.21 1.21 0 000-2.419z"></path></svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.46 6c-.77.35-1.6.58-2.46.67.88-.53 1.56-1.37 1.88-2.38-.83.49-1.74.85-2.7 1.03A4.5 4.5 0 0013.46 8c0 .34.04.67.11.98C9.53 8.78 6.1 7.05 3.79 4.45c-.32.55-.5 1.2-.5 1.9 0 1.56.8 2.94 2.02 3.75-.74-.02-1.44-.23-2.06-.57v.06c0 2.18 1.56 4 3.62 4.42-.38.1-.78.15-1.18.15-.29 0-.58-.03-.86-.08.57 1.78 2.23 3.08 4.2 3.12-1.55 1.21-3.5 1.94-5.64 1.94-.37 0-.73-.02-1.1-.06 2 1.28 4.38 2.02 6.94 2.02 8.3 0 12.84-6.88 12.84-12.84 0-.2 0-.39-.01-.58.88-.64 1.64-1.43 2.25-2.33z"></path></svg>
+</a>
+</div>
+</div>
 </div>
 </footer>
 </div>
 
-</body>
-</html>
+</body></html>
